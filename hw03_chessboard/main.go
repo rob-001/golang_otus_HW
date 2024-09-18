@@ -8,7 +8,11 @@ func main() {
 	fmt.Scan(&n)
 	for i := 0; i < n; i++ {
 		for j := 0; j < n; j++ {
-			result += "#"
+			if (i+j)%2 == 0 {
+				result += "#"
+			} else {
+				result += " "
+			}
 		}
 		result += "\n"
 	}
