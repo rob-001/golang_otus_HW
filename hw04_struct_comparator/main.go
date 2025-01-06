@@ -22,7 +22,7 @@ func NewBook(id int, title string, author string, year, size int, rate float32) 
 	}
 }
 
-func (b Book) GetId() int {
+func (b Book) GetID() int {
 	return b.ID
 }
 
@@ -46,7 +46,7 @@ func (b Book) GetRate() float32 {
 	return b.Rate
 }
 
-func (b *Book) SetId(id int) {
+func (b *Book) SetID(id int) {
 	b.ID = id
 }
 
@@ -76,28 +76,29 @@ const (
 	CompareByRate
 )
 
-func Compare(b1, b2 Book, CompareBook int) bool {
-    switch CompareBook {
-		case CompareByYear:
-			return b1.Year > b2.Year
-        case CompareBySize:
-			return b1.Size > b2.Size
-		case CompareByRate:
-			return b1.Rate > b2.Rate
-        default:
-			return false
+func Compare(b1, b2 Book, compareBook int) bool {
+	switch compareBook {
+	case CompareByYear:
+		return b1.Year > b2.Year
+	case CompareBySize:
+		return b1.Size > b2.Size
+	case CompareByRate:
+		return b1.Rate > b2.Rate
+	default:
+		return false
 	}
 }
+
 func main() {
 	Book1 := Book{}
 	Book2 := Book{}
-	Book1.SetId(10)
+	Book1.SetID(10)
 	Book1.SetTitle("Book 1")
 	Book1.SetAuthor("Author 1")
 	Book1.SetYear(2000)
 	Book1.SetSize(1000)
 	Book1.SetRate(4.5)
-	Book2.SetId(20)
+	Book2.SetID(20)
 	Book2.SetTitle("Book 2")
 	Book2.SetAuthor("Author 2")
 	Book2.SetYear(210)
@@ -107,5 +108,4 @@ func main() {
 	fmt.Println(Compare(Book1, Book2, CompareByRate))
 	fmt.Println(Compare(Book1, Book2, CompareBySize))
 	fmt.Println(Compare(Book1, Book2, CompareByYear))
-
 }
